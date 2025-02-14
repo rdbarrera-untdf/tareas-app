@@ -1,0 +1,42 @@
+services:
+  laravel.test:
+    build:
+      context: ./vendor/laravel/sail/runtimes/8.4
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    environment:
+      WWWGROUP: 1000
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
+    ports:
+      - "80:80"
+      - "5173:5173"
+    volumes:
+      - ".:/var/www/html"
+    networks:
+      - backend
+    restart: no
+
+  db:
+    image: postgres:latest
+    container_name: tareas-app-postgres
+    mem_limit: 512m
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tareas
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+    restart: no
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local

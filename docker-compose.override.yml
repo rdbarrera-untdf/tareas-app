@@ -1,0 +1,7 @@
+services:
+  laravel.test:
+    ports:
+      - "80:80"
+      - "5173:5173"
+    volumes:
+      - ".:/var/www/html"
