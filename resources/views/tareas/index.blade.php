@@ -6,11 +6,14 @@
 <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">
 	 <h1 class="d-flex justify-content-center">Lista de Tareas</h1>
 </div>
+@endsection
 @section('content')
-<a href="{{ route('tareas.create') }}" class  ="btn btn-outline-success" role="button">Crear Nueva Tarea</a>
-        <table class="table table-success table-striped">
-            <thead>
-                <tr>
+        <!-- Boton crear Tarea-->
+        <a href="{{ route('tareas.create') }}" class  ="btn btn-outline-success " role="button">Crear Nueva Tarea</a>
+        
+        <table class="table table-success table-striped mt-4">
+            <thead class="text-center">
+                <tr >
                     <th>ID</th>
                     <th>Descripción</th>
                     <th>Fecha</th>
@@ -19,7 +22,7 @@
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
                 @foreach($tareas as $tarea)
                     <tr>
                         <td>{{ $tarea->id }}</td>

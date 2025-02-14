@@ -5,6 +5,7 @@
 <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">
 	 <h1 class="d-flex justify-content-center">Crear Nueva Tarea</h1>
 </div>
+@endsection
 @section('content')
 
     <form action="{{ route('tareas.store') }}" method="POST">

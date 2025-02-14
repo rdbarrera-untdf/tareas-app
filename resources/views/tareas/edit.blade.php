@@ -5,8 +5,8 @@
 <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">
 	 <h1 class="d-flex justify-content-center">Editar Tarea</h1>
 </div>
+@endsection
 @section('content')
-    
     <form action="{{ route('tareas.update', $tarea) }}" method="POST">
         @csrf
         @method('PUT')
